@@ -3,7 +3,7 @@ sqlmodel
 uvicorn
 passlib
 passlib[bcrypt]
-
+docker
 
 # DEV DEPENDENCIES
 black
