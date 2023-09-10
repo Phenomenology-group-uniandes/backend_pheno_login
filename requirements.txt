@@ -1,0 +1,10 @@
+fastapi
+sqlmodel
+uvicorn
+passlib
+passlib[bcrypt]
+
+
+# DEV DEPENDENCIES
+black
+isort
