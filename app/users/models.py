@@ -1,11 +1,15 @@
-from sqlmodel import SQLModel, Field
+from sqlmodel import Field, SQLModel
 
 
 class UserBase(SQLModel):
-    username: str
-    email: str
-    password: str
-    container_name: str
+    username: str = Field(
+        default=None, description="The username of the user", unique=True
+    )
+    email: str = Field(default=None, description="The email of the user")
+    password: str = Field(default=None, description="The password of the user")
+    container_name: str | None = Field(
+        default=None, description="The container name of the user"
+    )
 
 
 class User(UserBase, table=True):
@@ -16,5 +20,8 @@ class UserCreate(UserBase):
     pass
 
 
-class UserRead(UserBase):
+class UserRead(SQLModel):
     id: int
+    username: str
+    email: str
+    container_name: str | None

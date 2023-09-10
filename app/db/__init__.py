@@ -1,6 +1,6 @@
-# DB_CONFIG 
+# DB_CONFIG
 
-from sqlmodel import create_engine, Session
+from sqlmodel import Session, create_engine
 
 sqlite_file_name = "database.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
@@ -8,6 +8,6 @@ sqlite_url = f"sqlite:///{sqlite_file_name}"
 engine = create_engine(sqlite_url, echo=True)
 
 
-def session():
+async def get_session() -> Session:
     with Session(engine) as session:
         yield session
