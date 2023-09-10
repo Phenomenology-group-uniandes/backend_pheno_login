@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from sqlmodel import SQLModel
 
+from .containers import container_router
 from .users import user_router
 
 app = FastAPI(
@@ -21,5 +22,6 @@ def on_startup():
 
 def get_app() -> FastAPI:
     app.include_router(user_router)
+    app.include_router(container_router)
 
     return app
