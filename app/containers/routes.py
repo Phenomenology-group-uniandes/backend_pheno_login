@@ -32,6 +32,7 @@ async def create_container_from_dockerfile(container_name: str, port: int, passw
         environment={"PASSWORD": password},
         detach=True,
         network="repos_uniandes_pheno_network",
+        volumes={os.getenv("MADGRAPH_SIMULATIONS"): {"bind": "/Madgraph_Simulations", "mode": "ro"}},
     )
-
+    print(os.getenv("MADGRAPH_SIMULATIONS"))
     return {"container_name": container_name, "port": port, "password": password, "status": "created"}
