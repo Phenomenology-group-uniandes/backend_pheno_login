@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from sqlmodel import SQLModel
 
@@ -8,6 +10,7 @@ app = FastAPI(
     title="Detector School Bootcamp",
     description="This is a very fancy project, with auto docs for the API and everything",  # noqa
     version="0.0.1",
+    root_path=os.getenv("ROOT_PATH", "/"),
 )
 
 
